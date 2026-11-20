@@ -79,17 +79,24 @@
   }
 
   // ---------------------------------------------------------------- sound (Web Audio, synthesised)
-  var audio = { ctx: null, master: null, noise: null, hum: null, muted: true };
+  // Sound is on by default (choice remembered). Browsers only let audio start inside a user gesture,
+  // so unlockAudio() runs from every keydown/pointerdown: it creates the context, calls resume(),
+  // and plays a silent buffer (needed by Safari/iOS before the context will render).
+  var savedMute = null;
+  try { savedMute = localStorage.getItem('hailDefenseMuted'); } catch (e) { /* storage blocked */ }
+  var audio = { ctx: null, master: null, noise: null, hum: null, muted: savedMute === '1' };
+  try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) { /* not supported */ }
   function ensureAudio() {
     if (audio.ctx) {
-      if (audio.ctx.state === 'suspended' && audio.ctx.resume) audio.ctx.resume();
+      if (audio.ctx.state !== 'running' && audio.ctx.resume) audio.ctx.resume().catch(function () {});
       return true;
     }
     var AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return false;
     try { audio.ctx = new AC(); } catch (e) { return false; }
+    if (audio.ctx.resume) { var r = audio.ctx.resume(); if (r && r.catch) r.catch(function () {}); }
     audio.master = audio.ctx.createGain();
-    audio.master.gain.value = 0.45;
+    audio.master.gain.value = 0.8;
     audio.master.connect(audio.ctx.destination);
     var len = Math.floor(audio.ctx.sampleRate * 0.8);
     var buf = audio.ctx.createBuffer(1, len, audio.ctx.sampleRate);
@@ -98,7 +105,19 @@
     audio.noise = buf;
     return true;
   }
-  function canPlay() { return !audio.muted && audio.ctx && audio.ctx.state === 'running'; }
+  soundBtn.textContent = 'Sound: ' + (audio.muted ? 'off' : 'on') + ' (M)';
+  soundBtn.setAttribute('aria-pressed', audio.muted ? 'false' : 'true');
+  function unlockAudio() {
+    if (audio.muted || !ensureAudio()) return;
+    var c = audio.ctx, s = c.createBufferSource();
+    s.buffer = c.createBuffer(1, 1, c.sampleRate);
+    s.connect(c.destination); s.start(0);
+  }
+  function canPlay() {
+    if (audio.muted || !audio.ctx) return false;
+    if (audio.ctx.state !== 'running') { audio.ctx.resume().catch(function () {}); return false; }
+    return true;
+  }
   function tone(type, f0, f1, dur, vol, delay) {
     if (!canPlay()) return;
     var c = audio.ctx, t = c.currentTime + (delay || 0);
@@ -164,10 +183,12 @@
   }
   function setMuted(m) {
     audio.muted = m;
+    try { localStorage.setItem('hailDefenseMuted', m ? '1' : '0'); } catch (e) { /* storage blocked */ }
     if (!m) {
-      ensureAudio();
-      if (game.plane) setTimeout(humStart, 50);
-      setTimeout(function () { tone('sine', 880, 880, 0.08, 0.08); }, 30);
+      unlockAudio();
+      var confirmTone = function () { tone('sine', 880, 880, 0.08, 0.08); if (game.plane) humStart(); };
+      if (audio.ctx && audio.ctx.state !== 'running') audio.ctx.resume().then(confirmTone, function () {});
+      else confirmTone();
     } else {
       humStop();
     }
@@ -1047,7 +1068,7 @@
     text('50–300 points', 560, py, 18, '#f0c75e', 'right');
 
     text('Move: Left / Right arrows or A / D     Fire: Space', W / 2, 360, 16, '#c3d0e0', 'center', 'normal');
-    text('Pause: P or Escape     Sound: M (off at start)', W / 2, 385, 16, '#c3d0e0', 'center', 'normal');
+    text('Pause: P or Escape     Sound on/off: M', W / 2, 385, 16, '#c3d0e0', 'center', 'normal');
     if (Math.floor(game.time * 1.6) % 2 === 0) {
       text(TOUCH ? 'Tap Fire or the screen to start' : 'Press Space or Enter to start', W / 2, 422, 22, '#8ff0c0');
     }
@@ -1119,6 +1140,7 @@
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     var act = keyAction(e);
     if (!act) return;
+    if (act !== 'mute') unlockAudio();
     e.preventDefault();
     if (act === 'mute') { if (!e.repeat) setMuted(!audio.muted); return; }
     if (DEMO) return;
@@ -1148,6 +1170,7 @@
 
   canvas.addEventListener('pointerdown', function (e) {
     e.preventDefault();
+    unlockAudio();
     canvas.focus();
     if (!DEMO) startAction();
   });
@@ -1158,6 +1181,7 @@
     function down(e) {
       e.preventDefault();
       if (btn.setPointerCapture && e.pointerId !== undefined) { try { btn.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ } }
+      unlockAudio();
       touchHeld[act] = true; btn.classList.add('active');
       if (act === 'fire' && !DEMO) startAction();
     }

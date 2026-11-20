@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Inbox: drop zone, contents never tracked
+/inbox/*
+!/inbox/README.md
+
+# Full-size originals can carry GPS/camera metadata; only the stripped copies in site/images/ are tracked
+/originals/
+
+# Python
+__pycache__/
+
+# Journal PDFs are copyrighted: kept on the Mac, not published
+/site/docs/*.pdf

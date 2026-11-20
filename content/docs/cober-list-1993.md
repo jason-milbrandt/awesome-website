@@ -1,0 +1,47 @@
+---
+title: Measurements of the Heat and Mass Transfer Parameters Characterizing Conical Graupel Growth
+authors: Cober, S. G.; List, R.
+year: 1993
+journal: Journal of the Atmospheric Sciences, 50(11), 1591-1609
+doi: 10.1175/1520-0469(1993)050<1591:MOTHAM>2.0.CO;2
+pdf: cober-list-1993.pdf
+---
+
+# Measurements of the Heat and Mass Transfer Parameters Characterizing Conical Graupel Growth
+
+**Citation:** Cober, S. G., and R. List (1993), Measurements of the heat and mass transfer parameters characterizing conical graupel growth. J. Atmos. Sci., 50, 1591–1609.
+
+## In one sentence
+Conical graupel grown on fixed stems in an icing wind tunnel, with surface temperature measured by infrared imaging, yield parameterizations of collection efficiency, Nusselt number, rime density and cone angle; collection efficiency is about 25% below smooth-sphere theory and heat transfer about 50% above smooth cones.
+
+## Question
+How do the heat and mass transfer parameters of riming conical graupel depend on cloud conditions? The Nusselt number had only been estimated, the Sherwood number measured on smooth models, and surface temperature measured with unrepresentative thermocouples.
+
+## Data and method
+- Embryos: 1-mm mylar hexagonal plates on 200-µm steel wires, three per run.
+- Standard conditions: T_a = −16°C, p = 101 kPa, V = 2.0 m s⁻¹, W_f = 2.0 g m⁻³, median volume radius r_m = 15 µm. Series varied one of W_f 0.5–3.0 g m⁻³, V 1.1–3.0 m s⁻¹, T_a −4.4 to −20.9°C, r_m 12–21 µm, p 60–100 kPa: 21 condition sets of 7–17 runs, plus 16 multi-parameter runs and 89 heat-transfer runs.
+- Mass, volume (mercury displacement), height, cone angle and shape measured after growth; final diameters 1.5–6 mm, Re 300–1500.
+- Surface temperature from an Agema Thermovision 800 infrared imager to ±0.2°C, the first such measurements on growing graupel.
+- Mass and heat balances then leave two unknowns, E_b and Nu (Sh = 0.95 Nu).
+
+## Main findings
+- Bulk collection efficiency: E_b = 0.55 log(2.51K) for 1.5 ≤ K ≤ 10 (K the Stokes parameter; error ±5%); values 0.35–0.8, about 25% below Langmuir and Blodgett (1946) smooth spheres, consistent with Mossop (1976).
+- Nusselt number: Nu = 2.0 Re^0.41 (±15%), 1.5 times Schemenauer's (1972) smooth cones, attributed to surface roughness.
+- Rime density: ρ = 0.078 + 0.184R_i − 0.015R_i² (0.3 ≤ R_i ≤ 5.5, R_i = −r_m V_i/T_s, g cm⁻³); with ambient velocity, ρ = 0.051 + 0.114R − 0.0055R² (1 ≤ R ≤ 8). Densities 0.16–0.70 g cm⁻³, independent of W_f.
+- Cone angle: 30–70°, mean 55°, rising with V r_m (35° at 1.1, 66° at 3.0 m s⁻¹) and falling with warmer T_s; Eq. (18), valid for T_a ≤ −6°C.
+- Surface temperature excess: 0.3–2.0°C (1.0°C at standard conditions), largest at the riming base.
+- Deposition or sublimation carried 0 to ±3% of mass transfer; 70–100 kPa pressure had no measurable effect; a growth model built on the fits matched experiments within ±10%.
+
+## Why it matters
+The fits close the heat and mass transfer equations for conical graupel at Re 300–1500 for use in cloud models; the authors state that smooth-sphere collection efficiencies can put riming growth rates in error by up to 25%.
+
+## Figures worth showing
+- Fig. 3 (p. 1597, PDF p. 7): graupel photographs under six growth conditions.
+- Fig. 9 (p. 1602, PDF p. 12): infrared image of surface temperature excess on a growing graupel.
+- Fig. 11 (p. 1605, PDF p. 15): E_b versus K against Mossop (1976) and Langmuir and Blodgett (1946).
+
+## Notes for commentary
+- Rigid suspension at constant airspeed excludes oscillation and tumbling, so cone angle and shape may not represent natural graupel.
+- Eq. (20) does not state the logarithm base; base 10 reproduces Fig. 11 (inferred).
+- Individual Nu values carry ±30% error, comparable to the spread between series.
+- Series counts differ within the paper (21 in the text, 23 rows in Table 1, 25 on p. 1601).

@@ -1,0 +1,44 @@
+# Gallery captions and grouping. Edit freely, then run `python3 build.py`.
+# `file` names an image in originals/images/; groups appear in the order listed here.
+# Dates come from file names or camera metadata (camera clocks can be wrong).
+
+[[group]]
+title = "Aircraft field work"
+images = [
+  { file = "convair-cabin-2008.png", caption = "Inside the Convair research aircraft, 8 April 2008." },
+  { file = "convair-alexie-jason.jpg", caption = "Alexie and Jason aboard the Convair (camera date 7 April 2009)." },
+]
+
+[[group]]
+title = "Colleagues and conferences"
+images = [
+  { file = "hugh-jason-iccp-2008.png", caption = "Hugh and Jason at the International Conference on Clouds and Precipitation (ICCP), 2008." },
+  { file = "hugh-cancun-2008.png", caption = "Hugh in Cancún, 2008." },
+]
+
+[[group]]
+title = "Science figures"
+images = [
+  { file = "cloud-microphysics-processes.png", caption = "Schematic of microphysical processes in a mixed-phase convective cloud, from droplet activation and CCN/INP to melting, shedding and evaporation." },
+  { file = "bin-schemes-radar-comparison.png", caption = "Observed NEXRAD reflectivity compared with reflectivity simulated by three bin microphysics schemes (CNNB, FSBM, UPNB). Fig. 3 of an article in Monthly Weather Review, vol. 145." },
+  { file = "mcsnow-closing-slide-2025.png", caption = "Closing slide of a McSnow talk (Deutscher Wetterdienst), May 2025, with a ChatGPT-written passage on why cloud physics is worth the effort." },
+]
+
+[[group]]
+title = "Family and home"
+images = [
+  { file = "edna-portrait-2023.jpg", caption = "Edna Milbrandt De Paz, portrait, December 2023." },
+  { file = "living-room-2004.jpg", caption = "At home with the dog, May 2004." },
+  { file = "backyard-2014.jpg", caption = "The backyard, 8 June 2014." },
+  { file = "evening-sky-2019.jpg", caption = "Evening sky over the street, 21 June 2019." },
+  { file = "selfie-2020.jpg", caption = "Selfie, 26 September 2020." },
+]
+
+[[group]]
+title = "Logos and insignia"
+images = [
+  { file = "cloud-physics-patch.png", caption = "Cloud Physics patch, Atmospheric Environment Service, Environment Canada." },
+  { file = "hiwr-logo.png", caption = "Logo of the former High Impact Weather Research (HIWR) section." },
+  { file = "eccc-logo.png", caption = "Environment and Climate Change Canada wordmark." },
+  { file = "bob-and-doug-stamp.png", caption = "Bob and Doug McKenzie on a 20-cent Canada stamp design." },
+]

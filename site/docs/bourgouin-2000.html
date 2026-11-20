@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Method to Determine Precipitation Types – Awesome Website</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">Awesome Website</a>
+  <nav><a href="../index.html">Home</a><a href="../gallery.html">Pictures</a><a href="../docs/index.html" aria-current="page">Documents</a><a href="../game/index.html">Game</a></nav>
+</header>
+<main>
+<p class="crumb"><a href="index.html">Documents</a></p><h1>A Method to Determine Precipitation Types</h1><p class="doc-meta">Bourgouin, P. · 2000 · Weather and Forecasting, 15, 583–592 · doi:10.1175/1520-0434(2000)015&lt;0583:AMTDPT&gt;2.0.CO;2</p><p><a class="button" href="https://doi.org/10.1175/1520-0434(2000)015%3C0583%3AAMTDPT%3E2.0.CO%3B2">Publisher's page</a> <a class="local-pdf" href="bourgouin-2000.pdf">PDF (local copy)</a></p><article class="summary"><p><strong>Citation:</strong> Bourgouin, P. (2000), A Method to Determine Precipitation Types. Weather and Forecasting, 15, 583–592.</p>
+<h2>In one sentence</h2>
+<p>The paper introduces the "area method", which diagnoses surface freezing rain, ice pellets, rain and snow from the areas between a temperature profile and the 0°C isotherm on a tephigram, and shows it outperforms the methods then used in Canada.</p>
+<h2>Question</h2>
+<p>Can a predictor taken from the temperature profile alone discriminate among winter precipitation types well enough for routine forecasting? The author argues that a layer's effect on a falling hydrometeor scales with its mean temperature times its depth, an area on an aerological diagram.</p>
+<h2>Data and method</h2>
+<ul>
+<li>Predictor: the positive area (PA, layer warmer than 0°C) and negative area (NA, layer colder than 0°C), in J kg⁻¹, computed as c_p T̄ ln(θ_top/θ_bottom) (Eq. 2).</li>
+<li>Training sample: North American soundings with precipitation reported within 1 h at the same site, 1989–90 and 1990–91 cold seasons: 54 freezing rain/ice pellet, 119 rain/snow and 3–5 ice pellet/rain cases.</li>
+<li>Independent sample: 1991–92 (29, 42 and 9 cases).</li>
+<li>Criteria from graphical screening and a least-squares line; a perfect-prog approach, so applicable to any NWP model.</li>
+<li>Compared with Derouin (1973), Cantin and Bachand (1993), Ramer (1993) and Baldwin and Contorno (1993).</li>
+</ul>
+<h2>Main findings</h2>
+<ul>
+<li>Freezing rain vs ice pellets (warm layer aloft, cold layer below): ice pellets if NA &gt; 66 + 0.66 PA, freezing rain if NA &lt; 46 + 0.66 PA, either in between (Eq. 4; a ±10 J kg⁻¹ band around the least-squares line).</li>
+<li>Rain vs snow (surface warm layer only): snow if PA &lt; 5.6 J kg⁻¹, mixed 5.6–13.2, rain if PA &gt; 13.2 J kg⁻¹ (Eq. 5). Below 2 J kg⁻¹ of PA aloft there is no significant melting and Eq. 5 applies.</li>
+<li>Development sample, freezing rain vs ice pellets: area 44/54 (81%), Cantin and Bachand 34/51 (67%), Derouin 20/51 (39%). Rain vs snow: area 80/119 (68%), Cantin and Bachand 36/119 (30%), Derouin 26/119 (22%).</li>
+<li>Independent 1991–92 sample: area 24/29 (83%) vs Derouin 7/29 (24%) for freezing rain/ice pellets; 37/42 (88%) vs 16/42 (38%) for rain/snow.</li>
+<li>Regional Finite Element model 6- and 12-h forecasts, 12–22 January 1995, three Canadian stations (46 cases): area 93%, Baldwin–Contorno 87%, Derouin 85%, Ramer 83%.</li>
+<li>Operational at the Canadian Meteorological Centre since spring 1995; retained with GEM from 1997.</li>
+</ul>
+<h2>Why it matters</h2>
+<p>The method needs only a temperature profile, costs almost no computation, and is not tied to one model or region. The author proposes extending it to icing assessment aloft and to QPF by precipitation type from GEM.</p>
+<h2>Figures worth showing</h2>
+<ul>
+<li>Fig. 1 (p. 584): schematic profiles with PA and NA shaded for the four profile classes.</li>
+<li>Fig. 2 (p. 587): NA vs PA scatter of freezing rain, ice pellet and mixed reports with the discriminating lines of Eq. 4.</li>
+<li>Fig. 3 (p. 588): freezing level vs PA for 71 rain, snow and mixed cases with the Eq. 5 thresholds; freezing level alone does not separate them.</li>
+</ul>
+<h2>Notes for commentary</h2>
+<ul>
+<li>Stated simplifications: one hydrometeor size, fall speed and phase; moisture and vertical motion ignored; saturation assumed. Freezing drizzle and mixtures with snow are not diagnosed.</li>
+<li>Samples are small, and the development-sample comparison favours the area method, which was fitted to it.</li>
+<li>Two ice pellet diagnoses verified as snow (NA 605 and 618 J kg⁻¹); the author tentatively proposes snow when NA &gt; 600 J kg⁻¹.</li>
+<li>Cantin and Bachand was designed for subjective forecaster adjustment, so an objective test may understate it; site-specific criteria or discriminant analysis might improve the area method.</li>
+</ul></article>
+</main>
+<footer class="site-footer">Built with Claude Code · page generated by build.py</footer>
+</body>
+</html>

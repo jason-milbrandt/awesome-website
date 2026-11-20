@@ -42,10 +42,10 @@ Files in `inbox/` are never edited in place.
 | `content/docs/*.md` | Paper summaries (and commentary) | hand / Claude |
 | `build.py` | Generates the site; `--check` validates inputs only | hand |
 | `site/` | The website; open `site/index.html` in a browser | see below |
-| `site/style.css`, `site/gallery.js` | Stylesheet and gallery lightbox | hand |
+| `site/style.css`, `site/gallery.js`, `site/theme.js` | Stylesheet (light and dark colour sets), gallery lightbox, header light/dark switch (choice saved in localStorage) | hand |
 | `site/docs/*.pdf` | The papers – **local only, gitignored**; pages show a "PDF (local copy)" link that is dead in a clone | filed from inbox |
 | `site/images/`, `site/*.html`, `site/docs/*.html` | **Generated** by `build.py`; never edit | build |
-| `site/game/` | The game (currently a generated placeholder page) | hand, once built |
+| `site/game/` | **Hail Defense** (`index.html`, `game.js`, `game.css`): original fixed-shooter in the arcade genre, weather themed – not a copy of any existing game. `index.html?demo` plays itself from a fixed seed (status line, used for headless checks) | hand |
 
 `build.py` writes web copies at most 1600 px (thumbnails 640 px) with EXIF orientation applied and **all metadata stripped**. A PNG with more than 150 000 distinct colours is treated as a photograph and saved as JPEG; other PNGs stay PNG. It fails loudly if `gallery.toml` and `originals/images/` disagree or a summary's PDF is missing. Check pages with headless Chrome (`~/.claude/wiki/mac-dev-gotchas.md`); there is no web server.
 
@@ -57,3 +57,4 @@ Local git, branch `main`, public GitHub repo `jason-milbrandt/awesome-website`. 
 
 - 2026-11-20: project created – `CLAUDE.md` and `inbox/`.
 - 2026-11-20: first inbox processed – 16 pictures in 5 gallery groups, 4 papers summarised (Cober and List 1993, Bourgouin 2000, Brandes et al. 2007, Cintineo et al. 2014). Site has home, gallery (lightbox) and document pages. Captions naming people are from file names; the user should confirm them. Next: the game.
+- 2026-11-20: header light/dark switch on every page (`theme.js`); game **Hail Defense** built by a background agent and checked (headless demo run, 0 errors). Public GitHub repo created. Not yet checked on a real device: game sound and touch buttons.

@@ -1,0 +1,41 @@
+/* Hail Defense – page styles for site/game/ only. */
+.game-main { padding-top: 1rem; }
+.game-main h1 { margin: .25rem 0 .25rem; }
+.game-main .lede { margin-bottom: .9rem; }
+
+.game-wrap { display: flex; flex-direction: column; align-items: center; gap: .7rem; }
+#game {
+  display: block; width: 800px; max-width: 100%; height: auto;
+  background: #0a1020; border-radius: 8px; box-shadow: var(--shadow);
+  touch-action: none; outline: none;
+}
+#game:focus-visible { box-shadow: 0 0 0 3px var(--accent); }
+
+.game-toolbar { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+.game-btn {
+  font: inherit; font-size: .9rem; padding: .35rem .9rem; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+}
+.game-btn:hover { background: var(--accent-soft); }
+.game-btn[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
+
+.touch-pad {
+  display: none; width: 100%; max-width: 560px;
+  grid-template-columns: 1fr 1.4fr 1fr; gap: .6rem;
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+}
+.has-touch .touch-pad { display: grid; }
+.touch-btn {
+  min-height: 64px; font: inherit; font-size: 1.5rem; font-weight: 700; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  touch-action: none; -webkit-tap-highlight-color: transparent;
+}
+.touch-fire { font-size: 1.2rem; color: var(--accent); }
+.touch-btn.active { background: var(--accent-soft); border-color: var(--accent); }
+
+.game-status { margin: 0; font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace; color: var(--muted); text-align: center; }
+
+.game-help { max-width: 46rem; margin: 1.5rem auto 0; }
+.game-help ul { padding-left: 1.2rem; color: var(--muted); }
+.game-targets dt { font-weight: 600; margin-top: .7rem; }
+.game-targets dd { margin: .1rem 0 0; color: var(--muted); }
